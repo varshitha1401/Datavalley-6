@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class LibraryFine {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of days late: ");
+        int daysLate = scanner.nextInt();
+        double fine;
+
+        if (daysLate > 0 && daysLate <= 7) {
+            fine = 0.5 * daysLate;
+        } else if (daysLate > 7 && daysLate <= 14) {
+            fine = 1 * (daysLate - 7);
+        } else if (daysLate > 14) {
+            fine = 5 * 7 + (daysLate - 14) * 5;
+            if (daysLate > 21) {
+                System.out.println("Your membership will be canceled.");
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a positive number.");
+            return;
+        }
+
+        System.out.printf("The fine is: ₹%.2f%n", fine);
+    }
+}
